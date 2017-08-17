@@ -8,7 +8,7 @@
  {
    "remote":      "github",
    "repository":  "platform_vendor_lge",
-   "target_path": "vendor/lge"
+   "target_path": "vendor/lge",
    "branch":      "cm-14.1"
  }
 ]
