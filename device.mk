@@ -42,8 +42,8 @@ PRODUCT_COPY_FILES += \
 endif
 
 # Vendor Interface Manifest
-PRODUCT_COPY_FILES += \
-    device/lge/bullhead/manifest.xml:vendor/manifest.xml
+#PRODUCT_COPY_FILES += \
+#    device/lge/bullhead/manifest.xml:vendor/manifest.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
@@ -143,10 +143,6 @@ PRODUCT_COPY_FILES += \
     device/lge/bullhead/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
     device/lge/bullhead/wifi/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
 
-# MSM IRQ Balancer configuration file
-PRODUCT_COPY_FILES += \
-    device/lge/bullhead/msm_irqbalance.conf:vendor/etc/msm_irqbalance.conf
-
 # Power configuration file
 PRODUCT_COPY_FILES += \
     device/lge/bullhead/init.bullhead.power.sh:system/bin/init.bullhead.power.sh
@@ -241,6 +237,11 @@ PRODUCT_PACKAGES += \
 # GPS configuration
 PRODUCT_COPY_FILES += \
     device/lge/bullhead/gps.conf:system/etc/gps.conf
+
+# GPS
+PRODUCT_PACKAGES += \
+    libgps.utils \
+    gps.msm8992
 
 # NFC packages
 PRODUCT_PACKAGES += \
@@ -364,12 +365,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Write Manufacturer & Model information in created media files.
 # IMPORTANT: ONLY SET THIS PROPERTY TO TRUE FOR PUBLIC DEVICES
-ifneq ($(filter aosip_bullhead% bullhead%, $(TARGET_PRODUCT)),)
+#ifneq ($(filter aosp_bullhead% bullhead%, $(TARGET_PRODUCT)),)
 PRODUCT_PROPERTY_OVERRIDES += \
     media.recorder.show_manufacturer_and_model=true
-else
-$(error "you must decide whether to write manufacturer and model information into created media files for this device. ONLY ENABLE IT FOR PUBLIC DEVICE.")
-endif  #TARGET_PRODUCT
+#else
+#$(error "you must decide whether to write manufacturer and model information into created media files for this device. ONLY ENABLE IT FOR PUBLIC DEVICE.")
+#endif  #TARGET_PRODUCT
 
 # Reduce client buffer size for fast audio output tracks
 PRODUCT_PROPERTY_OVERRIDES += \
