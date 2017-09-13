@@ -364,7 +364,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Write Manufacturer & Model information in created media files.
 # IMPORTANT: ONLY SET THIS PROPERTY TO TRUE FOR PUBLIC DEVICES
-ifneq ($(filter aosp_bullhead% bullhead%, $(TARGET_PRODUCT)),)
+ifneq ($(filter aosip_bullhead% bullhead%, $(TARGET_PRODUCT)),)
 PRODUCT_PROPERTY_OVERRIDES += \
     media.recorder.show_manufacturer_and_model=true
 else
@@ -550,10 +550,10 @@ PRODUCT_COPY_FILES += \
 
 # Modem debugger/misc
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-ifeq (,$(filter aosp_bullhead, $(TARGET_PRODUCT)))
+ifeq (,$(filter aosip_bullhead, $(TARGET_PRODUCT)))
 PRODUCT_PACKAGES += \
     NexusLogger
-endif # aosp_bullhead
+endif # aosip_bullhead
 
 PRODUCT_COPY_FILES += \
     device/lge/bullhead/init.bullhead.diag.rc.userdebug:root/init.bullhead.diag.rc \
